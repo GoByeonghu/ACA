@@ -16,11 +16,11 @@ OUTPUT
 A과 B이 동일합니다.
 A
 1
-Execution Time: 27 ms
+Execution Time: 28 ms
 Memory Usage: 0 bytes
 B
 1
-Execution Time: 21 ms
+Execution Time: 23 ms
 Memory Usage: 0 bytes
 
 
@@ -38,11 +38,11 @@ OUTPUT
 A과 B이 동일합니다.
 A
 2
-Execution Time: 25 ms
+Execution Time: 26 ms
 Memory Usage: 0 bytes
 B
 2
-Execution Time: 13 ms
+Execution Time: 14 ms
 Memory Usage: 0 bytes
 
 

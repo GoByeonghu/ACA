@@ -67,12 +67,14 @@ aca "소스코드1경로" "소스코드2경로" [옵션]
 aca userData/A.java userData/C.py -o settings/report -t settings/test_case
 ```
 ![file](https://github.com/GoByeonghu/ACA/assets/92240138/957243d2-54c2-4dd8-8bdb-d581d3667648)
-5) 터미널 출력으로 실행
+       
+6) 터미널 출력으로 실행
 ```
 aca userData/A.java userData/C.py -t settings/test_case
 ```
 ![terminal](https://github.com/GoByeonghu/ACA/assets/92240138/d48aff5e-f4e2-4869-9a08-e8bc925bf89f)
-6) 결과
+       
+7) 결과
 ```
 --------------------------------------
 A = userData/A.java

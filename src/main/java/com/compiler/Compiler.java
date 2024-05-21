@@ -64,7 +64,7 @@ public abstract class Compiler {
 
             // Check if compilation was successful
             if (exitCode == 0) {
-                System.out.println("Compilation successful.");
+                //System.out.println("Compilation successful.");
             } else {
                 System.err.println("Compilation failed with exit code: " + exitCode);
             }

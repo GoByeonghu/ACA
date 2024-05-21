@@ -100,7 +100,7 @@ public abstract class Executor {
             memoryUsage = getMemoryUsage(process);
 
             if (exitCode == 0) {
-                System.out.println("Successfully completed execution");
+                //System.out.println("Successfully completed execution");
             } else {
                 System.err.println("Execution failed with exit code: " + exitCode);
             }

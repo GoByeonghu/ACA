@@ -1,6 +1,6 @@
 --------------------------------------
 A = userData/A.java
-B = userData/B.cpp
+B = userData/C.py
 Test Case = settings/test_case
 --------------------------------------
 #CASE 1
@@ -16,11 +16,11 @@ OUTPUT
 A과 B이 동일합니다.
 A
 1
-Execution Time: 28 ms
+Execution Time: 27 ms
 Memory Usage: 0 bytes
 B
 1
-Execution Time: 458 ms
+Execution Time: 21 ms
 Memory Usage: 0 bytes
 
 
@@ -38,11 +38,11 @@ OUTPUT
 A과 B이 동일합니다.
 A
 2
-Execution Time: 26 ms
+Execution Time: 25 ms
 Memory Usage: 0 bytes
 B
 2
-Execution Time: 7 ms
+Execution Time: 13 ms
 Memory Usage: 0 bytes
 
 

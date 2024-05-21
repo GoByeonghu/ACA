@@ -13,26 +13,12 @@ import com.usercode.UserCode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class Main {
+public class MainCLI {
 
     public static void main(String[] args){
+
         System.out.println("HI I'm ACA");
-        // For Dummy args[]
-        Scanner scanner = new Scanner(System.in);
-        //System.out.println("Please enter your command");
-        String user_input = scanner.nextLine();
-        String[] Dummy_args = user_input.split(" ");
-        int startIndex = 0;
-        if (Dummy_args.length > 0 && Dummy_args[0].equalsIgnoreCase("aca")) {
-            startIndex = 1;
-        }
-        else{
-            System.err.println("Error: Wrong Command");
-        }
-
-
         ConfigManager configManager = new ConfigManager();
         //////////////////////////////////////////////////////forTest
 //        String sourceFilePath1="userData/A.java";
@@ -49,24 +35,20 @@ public class Main {
         String testCasePath=null;
         String resultFilePath=null;
 
-        boolean isExist_T=false;
-        boolean isExist_O=false;
         // 명령줄 인수 파싱
-        for (int i = startIndex; i < Dummy_args.length; i++) {
-            switch (Dummy_args[i]) {
+        for (int i = 0; i < args.length; i++) {
+            switch (args[i]) {
                 case "-t":
-                    if (i + 1 < Dummy_args.length) {
-                        testCasePath = Dummy_args[++i];
-                        isExist_T=true;
+                    if (i + 1 < args.length) {
+                        testCasePath = args[++i];
                     } else {
                         testCasePath=configManager.getTest_casePath();
                         return;
                     }
                     break;
                 case "-o":
-                    if (i + 1 < Dummy_args.length) {
-                        resultFilePath = Dummy_args[++i];
-                        isExist_O=true;
+                    if (i + 1 < args.length) {
+                        resultFilePath = args[++i];
                     } else {
                         resultFilePath=configManager.getReportPath();
                         return;
@@ -74,21 +56,15 @@ public class Main {
                     break;
                 default:
                     if (sourceFilePath1 == null) {
-                        sourceFilePath1 = Dummy_args[i];
+                        sourceFilePath1 = args[i];
                     } else if (sourceFilePath2 == null) {
-                        sourceFilePath2 = Dummy_args[i];
+                        sourceFilePath2 = args[i];
                     } else {
                         System.err.println("Error: Too many arguments");
                         return;
                     }
                     break;
             }
-        }
-        if(!isExist_T){
-            testCasePath=configManager.getTest_casePath();
-        }
-        if(!isExist_O){
-            resultFilePath=configManager.getReportPath();
         }
 
         // 필수 인수가 제공되었는지 확인
@@ -113,12 +89,9 @@ public class Main {
         results2=compileAndExecute(userCode2, inputs, buildFilePath);
 
         Comparer comparer = new Comparer(resultFilePath);
-        if(!isExist_O){
-            comparer.compareToTerminal(userCode1,userCode2, inputs, results1, results2);
-        }
-        else {
-            comparer.compareToFile(userCode1,userCode2, inputs, results1, results2);
-        }
+        comparer.compareToFile(userCode1,userCode2, inputs, results1, results2);
+        comparer.compareToTerminal(userCode1,userCode2, inputs, results1, results2);
+
     }
 
     private static List<Result> compileAndExecute(UserCode userCode, List<Input> inputs, String buildFilePath){

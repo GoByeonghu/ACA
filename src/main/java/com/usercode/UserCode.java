@@ -45,7 +45,7 @@ public class UserCode {
                 break;
             case "cpp":
                 this.species = SPECIES.CPP;
-
+                break;
             default:
                 System.out.println("Wrong File");
         }

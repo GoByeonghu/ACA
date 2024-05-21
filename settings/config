@@ -1,0 +1,16 @@
+# Paths to test case and report
+test_case=settings/test_case
+report=settings/report
+build=userData/build
+
+# Compiler settings for different languages
+c=null
+cpp=null
+py=null
+java=null
+
+# Executor settings for different languages
+c_exe=null
+cpp_exe=null
+py_exe=null
+java_exe=null

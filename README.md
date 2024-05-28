@@ -66,13 +66,13 @@ aca "소스코드1경로" "소스코드2경로" [옵션]
 ```
 aca userData/A.java userData/C.py -o settings/report -t settings/test_case
 ```
-![file](https://github.com/GoByeonghu/ACA/assets/92240138/957243d2-54c2-4dd8-8bdb-d581d3667648)
+![ExeToFile](https://github.com/GoByeonghu/ACA/assets/92240138/7d5dd610-d265-4334-bc03-5b4e37cfb4c6)
        
 6) 터미널 출력으로 실행
 ```
 aca userData/A.java userData/C.py -t settings/test_case
 ```
-![terminal](https://github.com/GoByeonghu/ACA/assets/92240138/d48aff5e-f4e2-4869-9a08-e8bc925bf89f)
+![ExeToTerminal](https://github.com/GoByeonghu/ACA/assets/92240138/d8a7fde3-8883-4069-8bc1-774cc3143059)
        
 7) 결과
 ```
@@ -95,11 +95,11 @@ A과 B이 동일합니다.
 A
 1
 Execution Time: 28 ms
-Memory Usage: 0 bytes
+Memory Usage: 39256064 bytes
 B
 1
-Execution Time: 22 ms
-Memory Usage: 0 bytes
+Execution Time: 30 ms
+Memory Usage: 8536064 bytes
 
 
 #CASE 2
@@ -116,11 +116,11 @@ OUTPUT
 A과 B이 동일합니다.
 A
 2
-Execution Time: 27 ms
-Memory Usage: 0 bytes
+Execution Time: 26 ms
+Memory Usage: 38273024 bytes
 B
 2
-Execution Time: 14 ms
-Memory Usage: 0 bytes
+Execution Time: 15 ms
+Memory Usage: 8077312 bytes
 ```
 

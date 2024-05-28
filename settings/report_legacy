@@ -17,11 +17,11 @@ A과 B이 동일합니다.
 A
 1
 Execution Time: 28 ms
-Memory Usage: 39256064 bytes
+Memory Usage: 0 bytes
 B
 1
-Execution Time: 30 ms
-Memory Usage: 8536064 bytes
+Execution Time: 23 ms
+Memory Usage: 0 bytes
 
 
 #CASE 2
@@ -39,10 +39,10 @@ A과 B이 동일합니다.
 A
 2
 Execution Time: 26 ms
-Memory Usage: 38273024 bytes
+Memory Usage: 0 bytes
 B
 2
-Execution Time: 15 ms
-Memory Usage: 8077312 bytes
+Execution Time: 14 ms
+Memory Usage: 0 bytes
 
 

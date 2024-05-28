@@ -32,4 +32,15 @@ public class CppCompiler extends Compiler{
 
         return true;
     }
+
+    public boolean isCompilerAvailable() {
+        try {
+            Process process = new ProcessBuilder("g++", "--version").start();
+            process.waitFor();
+            return process.exitValue() == 0;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

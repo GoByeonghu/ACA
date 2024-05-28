@@ -54,16 +54,16 @@ public class ConfigManager {
     public ConfigManager() {
         properties = new Properties();
         readProperties(CONFIG_FILE_PATH);
-        SetField();
+        setField();
     }
 
     public ConfigManager(String configFilePath) {
         properties = new Properties();
         readProperties(configFilePath);
-        SetField();
+        setField();
     }
 
-    private void SetField(){
+    private void setField(){
         this.reportPath = properties.getProperty("report");
         this.test_casePath = properties.getProperty("test_case");
         this.buildFilePath = properties.getProperty("build");

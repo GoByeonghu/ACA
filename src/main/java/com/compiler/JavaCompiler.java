@@ -1,5 +1,6 @@
 package com.compiler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,17 @@ public class JavaCompiler extends Compiler {
         command.add(sourceFilePath);
 
         return true;
+    }
+
+    public boolean isCompilerAvailable() {
+        try {
+            Process process = new ProcessBuilder("javac", "-version").start();
+            process.waitFor();
+            return process.exitValue() == 0;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 

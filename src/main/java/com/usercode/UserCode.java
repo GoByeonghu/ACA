@@ -5,9 +5,9 @@ import com.result.Result;
 import java.io.File;
 
 public class UserCode {
-    public enum SPECIES {JAVA, CPP, PY}
+    public enum Language {JAVA, CPP, PY}
 
-    private SPECIES species;
+    private Language language;
 
     private String nickname;
     private String sourceFilePath;
@@ -28,8 +28,8 @@ public class UserCode {
 
     public String getNickname() { return nickname; }
     public String getSourceFilePath() { return sourceFilePath; }
-    public SPECIES getSpecies() {
-        return species;
+    public Language getSpecies() {
+        return language;
     }
 
     public void setSpecies(String sourceFilePath) {
@@ -38,13 +38,13 @@ public class UserCode {
 
         switch (fileExtension){
             case "java" :
-                this.species = SPECIES.JAVA;
+                this.language = Language.JAVA;
                 break;
             case "py" :
-                this.species = SPECIES.PY;
+                this.language = Language.PY;
                 break;
             case "cpp":
-                this.species = SPECIES.CPP;
+                this.language = Language.CPP;
                 break;
             default:
                 System.out.println("Wrong File");

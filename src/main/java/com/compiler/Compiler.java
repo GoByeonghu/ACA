@@ -21,6 +21,8 @@ public abstract class Compiler {
 
     public abstract boolean setCommand(String sourceFilePath, String outputDirectoryPath);
 
+    public abstract boolean isCompilerAvailable();
+
     public String getCompilerPath() {
         return compilerPath;
     }
@@ -30,6 +32,12 @@ public abstract class Compiler {
     }
 
     public String compile(String sourceFilePath, String outputDirectoryPath){
+        // Check if the compiler is available
+        if (!isCompilerAvailable()) {
+            System.err.println("Compiler is not available.");
+            return null;
+        }
+
         // Ensure the output directory exists
         File outputDirectory = new File(outputDirectoryPath);
         if (!outputDirectory.exists()) {
@@ -75,5 +83,6 @@ public abstract class Compiler {
 
         return outputDirectoryPath+"/"+fileNameWithoutExtension;
     }
+
 
 }

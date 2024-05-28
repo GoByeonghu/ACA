@@ -1,7 +1,6 @@
 package com.comparer;
 
-import com.executor.Executor;
-import com.result.Input;
+import com.result.TestCaseInput;
 import com.result.Result;
 import com.usercode.UserCode;
 
@@ -31,7 +30,7 @@ public class Comparer {
         }
     }
 
-    public void compare(UserCode userCode1, UserCode userCode2, List<Input> inputs,
+    public void compare(UserCode userCode1, UserCode userCode2, List<TestCaseInput> inputs,
                         List<Result> results1, List<Result> results2, boolean toFile) {
         try (PrintWriter writer = toFile ? new PrintWriter(new FileWriter(resultFilePath)) : new PrintWriter(System.out)) {
             // Output header
@@ -43,7 +42,7 @@ public class Comparer {
             // 반복을 위해 가장 작은 리스트의 크기 사용
             int minSize = Math.min(inputs.size(), Math.min(results1.size(), results2.size()));
             for (int i = 0; i < minSize; i++) {
-                Input input = inputs.get(i);
+                TestCaseInput input = inputs.get(i);
                 Result result1 = results1.get(i);
                 Result result2 = results2.get(i);
 
@@ -97,12 +96,12 @@ public class Comparer {
         }
     }
 
-    public void compareToFile(UserCode userCode1, UserCode userCode2, List<Input> inputs,
+    public void compareToFile(UserCode userCode1, UserCode userCode2, List<TestCaseInput> inputs,
                               List<Result> results1, List<Result> results2) {
         compare(userCode1, userCode2, inputs, results1, results2, true);
     }
 
-    public void compareToTerminal(UserCode userCode1, UserCode userCode2, List<Input> inputs,
+    public void compareToTerminal(UserCode userCode1, UserCode userCode2, List<TestCaseInput> inputs,
                                   List<Result> results1, List<Result> results2) {
         compare(userCode1, userCode2, inputs, results1, results2, false);
     }

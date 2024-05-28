@@ -2,7 +2,7 @@ package com.executor;
 
 import com.config.ConfigManager;
 import com.memorymonitor.MemoryMonitor;
-import com.result.Input;
+import com.result.TestCaseInput;
 import com.result.Result;
 
 import java.io.*;
@@ -20,8 +20,8 @@ public abstract class Executor {
 
     public abstract boolean setCommand(String executablePath);
 
-    public List<Input> setInput(String inputPath) {
-        List<Input> inputs = new ArrayList<>();
+    public List<TestCaseInput> setInput(String inputPath) {
+        List<TestCaseInput> inputs = new ArrayList<>();
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(inputPath))) {
             String line;
@@ -31,13 +31,13 @@ public abstract class Executor {
             while ((line = fileReader.readLine()) != null) {
                 if (line.trim().equals("#case")) {
                     if (isCase) {
-                        inputs.add(new Input(new ArrayList<>(inputLines)));
+                        inputs.add(new TestCaseInput(new ArrayList<>(inputLines)));
                         inputLines.clear();
                     }
                     isCase = true;
                 } else if (line.trim().equals("#end")) {
                     if (isCase) {
-                        inputs.add(new Input(new ArrayList<>(inputLines)));
+                        inputs.add(new TestCaseInput(new ArrayList<>(inputLines)));
                         inputLines.clear();
                         isCase = false;
                     }
@@ -47,7 +47,7 @@ public abstract class Executor {
             }
 
             if (isCase) {
-                inputs.add(new Input(new ArrayList<>(inputLines)));
+                inputs.add(new TestCaseInput(new ArrayList<>(inputLines)));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,10 +56,10 @@ public abstract class Executor {
         return inputs;
     }
 
-    public List<Result> execute(String executablePath, List<Input> inputs) {
+    public List<Result> execute(String executablePath, List<TestCaseInput> inputs) {
         List<Result> results = new ArrayList<>();
 
-        for (Input input : inputs) {
+        for (TestCaseInput input : inputs) {
             results.add(executeSingleCase(executablePath, input.getInput()));
         }
 
@@ -121,6 +121,7 @@ public abstract class Executor {
 
         return new Result(output, executionTime, memoryUsage);
     }
+
 
 
 }

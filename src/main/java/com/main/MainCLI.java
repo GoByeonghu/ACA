@@ -7,7 +7,7 @@ import com.config.ConfigManager;
 import com.executor.CppExecutor;
 import com.executor.JavaExecutor;
 import com.executor.PyExecutor;
-import com.result.Input;
+import com.result.TestCaseInput;
 import com.result.Result;
 import com.usercode.UserCode;
 
@@ -84,7 +84,7 @@ public class MainCLI {
 
         List<Result> results1;
         List<Result> results2;
-        List<Input> inputs=new ArrayList<>();
+        List<TestCaseInput> inputs=new ArrayList<>();
         results1=compileAndExecute(userCode1, inputs, buildFilePath);
         results2=compileAndExecute(userCode2, inputs, buildFilePath);
 
@@ -94,14 +94,14 @@ public class MainCLI {
 
     }
 
-    private static List<Result> compileAndExecute(UserCode userCode, List<Input> inputs, String buildFilePath){
+    private static List<Result> compileAndExecute(UserCode userCode, List<TestCaseInput> inputs, String buildFilePath){
         //컴파일 후 실행
-        UserCode.SPECIES species;
-        species=userCode.getSpecies();
+        UserCode.Language language;
+        language=userCode.getSpecies();
         String executionPath;
         List<Result> results;
         //List<Input> inputs;
-        switch (species) {
+        switch (language) {
             case CPP:
                 CppCompiler cppCompiler = new CppCompiler();
                 executionPath=cppCompiler.compile(userCode.getSourceFilePath(), buildFilePath);
@@ -122,7 +122,7 @@ public class MainCLI {
                 results=pyExecutor.execute(userCode.getSourceFilePath(),inputs);
                 break;
             default:
-                throw new IllegalArgumentException("Unexpected value: " + species);
+                throw new IllegalArgumentException("Unexpected value: " + language);
         };
         return results;
     }

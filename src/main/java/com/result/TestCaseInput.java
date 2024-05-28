@@ -2,10 +2,10 @@ package com.result;
 
 import java.util.List;
 
-public class Input {
+public class TestCaseInput {
     private List<String> input;
 
-    public Input(List<String> input) {
+    public TestCaseInput(List<String> input) {
         this.input = input;
     }
 
